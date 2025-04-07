@@ -31,15 +31,15 @@ profileImage.addEventListener('mouseout', () => {
 });
 
 // Initialize EmailJS
-emailjs.init("your_public_key"); // Replace with your EmailJS public key
+emailjs.init("hd8S9bU0sbH_YUHr9"); // Replace with your EmailJS public key
 
 // Handle form submission
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
 
     // Collect form data
-    const serviceID = "your_service_id"; // Replace with your EmailJS service ID
-    const templateID = "your_template_id"; // Replace with your EmailJS template ID
+    const serviceID = "service_fz6fy1i"; // Replace with your EmailJS service ID
+    const templateID = "template_zphhw0y"; // Replace with your EmailJS template ID
 
     const formData = {
         name: document.getElementById("name").value,
@@ -50,7 +50,7 @@ document.getElementById("contact-form").addEventListener("submit", function(even
     // Send email using EmailJS
     emailjs.send(serviceID, templateID, formData)
         .then(response => {
-            alert("Message sent successfully!");
+            alert("Message Had Been Successfully Sent!");
             console.log("EmailJS Response:", response);
             // Optionally, clear the form fields
             document.getElementById("contact-form").reset();
