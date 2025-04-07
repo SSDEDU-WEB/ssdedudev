@@ -1,34 +1,59 @@
-// Smooth scroll for navigation links
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', event => {
-        event.preventDefault();
-        const targetPage = event.target.getAttribute('href');
-        window.location.href = targetPage; // Redirect smoothly
+// Parallax Effect
+const layers = document.querySelectorAll('.layer');
+document.addEventListener('mousemove', e => {
+  layers.forEach((layer, i) => {
+    const speed = (i + 1) * 0.02;
+    const x = (window.innerWidth / 2 - e.pageX) * speed;
+    const y = (window.innerHeight / 2 - e.pageY) * speed;
+    layer.style.transform = `translate(${x}px, ${y}px)`;
+  });
+});
+
+
+new Typed("#typed", {
+    strings: [
+      "Developer.",
+      "Code Wizard.",
+      "Frontend Pro.",
+    ],
+    typeSpeed: 60,
+    backSpeed: 30,
+    backDelay: 1500,
+    loop: true,
+    smartBackspace: true,
+    showCursor: true,
+    cursorChar: "|",
+  });
+
+// Handle Active Link
+const navLinks = document.querySelectorAll('.nav-links ul li a');
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    navLinks.forEach((link) => link.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
+// Handle Hamburger Menu Toggle
+const hamburger = document.querySelector('.hamburger-menu');
+const nav = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('active');  // Toggle the 'active' class for hamburger animation
+});
+
+// Scroll animations for progress bars
+window.addEventListener('scroll', function() {
+    const progressBars = document.querySelectorAll('.progress-bar');
+    
+    progressBars.forEach(bar => {
+      const rect = bar.getBoundingClientRect();
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        bar.querySelector('::before').style.width = bar.dataset.progress + '%';
+      }
     });
 });
 
-// Dynamic greeting based on time of day
-document.addEventListener('DOMContentLoaded', () => {
-    const greetingElement = document.querySelector('header h1');
-    const hours = new Date().getHours();
-    if (hours < 12) {
-        greetingElement.textContent = 'Good Morning, I\'m Andy Torres!';
-    } else if (hours < 18) {
-        greetingElement.textContent = 'Good Afternoon, I\'m Andy Torres!';
-    } else {
-        greetingElement.textContent = 'Good Evening, I\'m Andy Torres!';
-    }
-});
-
-// Profile image hover effect
-const profileImage = document.querySelector('.profile-image');
-profileImage.addEventListener('mouseover', () => {
-    profileImage.style.transform = 'scale(1.1)';
-    profileImage.style.transition = 'transform 0.3s ease-in-out';
-});
-profileImage.addEventListener('mouseout', () => {
-    profileImage.style.transform = 'scale(1)';
-});
 
 // Initialize EmailJS
 emailjs.init("hd8S9bU0sbH_YUHr9"); // Replace with your EmailJS public key
