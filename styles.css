@@ -1,38 +1,101 @@
+/* General styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    color: #333;
 }
+
+/* Header styles */
 header {
     text-align: center;
-    margin-top: 20px;
+    padding: 20px;
+    background-color: #007BFF;
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* Profile image */
 .profile-image {
     width: 150px;
     border-radius: 50%;
-    animation: fadeIn 2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+
+/* Navigation bar */
 nav {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 nav a {
     margin: 0 15px;
     text-decoration: none;
-    color: #000;
+    color: #007BFF;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
 }
+
+nav a:hover {
+    color: #0056b3;
+}
+
+/* Footer styles */
 footer {
     text-align: center;
-    background-color: #333;
-    color: #fff;
     padding: 10px;
+    background-color: #343a40;
+    color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Skills, Projects, and Contact sections */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+    background: #007BFF;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+form input, form textarea, form button {
+    width: 80%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
 }
